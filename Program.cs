@@ -11,10 +11,13 @@ namespace AdventOfCode
             Console.WriteLine("Starting Advent Of Code challenge!");
             Console.WriteLine("<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>");
 
-            var answer = Day1.SolvePuzzle();
+            var answerDay1Part1 = Day1.SolveFirstPartOfPuzzle();
+            var answerDay1Part2 = Day1.SolveSecondPartOfPuzzle();
 
-            Task.WaitAll(answer);
-            Console.WriteLine($"The answer to Day 1 puzzle is: {answer.Result}.");
+            Task.WaitAll(answerDay1Part1, answerDay1Part2);
+
+            Console.WriteLine($"The answer to Day 1 part 1 puzzle is: {answerDay1Part1.Result}.");
+            Console.WriteLine($"The answer to Day 1 part 2 puzzle is: {answerDay1Part2.Result}.");
         }
     }
 }
