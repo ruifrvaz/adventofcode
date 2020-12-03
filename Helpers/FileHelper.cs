@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 namespace AdventOfCode.Helpers {
     public static class FileHelper 
     {
-        public async static Task<List<int>> LoadExpenseFile(string filePath) {
+        public async static Task<List<string>> LoadPuzzleList(string filePath) {
 
-            var expenseList = new List<int>();
+            var puzzleList = new List<string>();
 
             using (var sr = new StreamReader(filePath))
             {
                 while(sr.Peek() >= 0) 
                 {
 
-                    var expense = await sr.ReadLineAsync();
-                    expenseList.Add(Int32.Parse(expense));
+                    var puzzleEntry = await sr.ReadLineAsync();
+                    puzzleList.Add(puzzleEntry);
                 }
-                return expenseList;
+                return puzzleList;
             }
         }
     }

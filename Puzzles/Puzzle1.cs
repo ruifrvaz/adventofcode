@@ -5,23 +5,22 @@ using System.Threading.Tasks;
 using AdventOfCode.Helpers;
 
 namespace AdventOfCode.Puzzles {
-    public static class Day1 
+    public static class Puzzle1
     {
-        private static string FILEPATH = "Files/expenselist.txt";
+        private static string FILEPATH = "Files/puzzlelist1.txt";
 
         private static List<ValueList> CombinedValuesFound = new List<ValueList>();
         public async static Task<string> SolveFirstPartOfPuzzle()
         {
             try
             {
-                var expenseList = await FileHelper.LoadExpenseFile(FILEPATH);
+                var expenseList = await FileHelper.LoadPuzzleList(FILEPATH);
                 (int value1, int value2) = FindTwoValuesWhoseSumIs2020(expenseList);
                 return (value1*value2).ToString();
             } 
             catch(Exception ex) 
             {
                 Console.WriteLine($"Unable to solve puzzle: {ex}.");
-                
             }
             return "404";
         }
@@ -30,8 +29,8 @@ namespace AdventOfCode.Puzzles {
         {
             try
             {
-                var expenseList = await FileHelper.LoadExpenseFile(FILEPATH);
-                (int value1, int value2, int value3) = FindThreeValuesWhoseSumIs2020(expenseList);
+                var expenseList = await FileHelper.LoadPuzzleList(FILEPATH);
+                (int value1, int value2, int value3) = FindThreeValuesWhoseSumIs2020(expenseList.ConvertAll(int.Parse));
                 return (value1*value2*value3).ToString();
             } 
             catch(Exception ex) 
@@ -45,16 +44,16 @@ namespace AdventOfCode.Puzzles {
         ///
         // Find the values recursively by iterating the list and emptying it 1 element at a time. 
         ///
-        private static (int, int) FindTwoValuesWhoseSumIs2020(List<int> expenseList) 
+        private static (int, int) FindTwoValuesWhoseSumIs2020(List<string> expenseList) 
         {
             var value1 = expenseList[0];
-            var shorterList = new List<int>(expenseList);
+            var shorterList = new List<string>(expenseList);
             shorterList.RemoveAt(0);
             foreach (var expense in shorterList)
             {
-                if(value1 + expense == 2020) 
+                if(Int32.Parse(value1) + Int32.Parse(expense) == 2020) 
                 {
-                    return (value1, expense);
+                    return (Int32.Parse(value1), Int32.Parse(expense));
                 }    
             }
 
@@ -71,7 +70,6 @@ namespace AdventOfCode.Puzzles {
             {
                 foreach (var valueList in CombinedValuesFound)
                 {
-                    Console.WriteLine($"{valueList.Value1}+{valueList.Value2}+{expense} = {valueList.Value1+valueList.Value2+expense}.");
                     if(valueList.Value1 + valueList.Value2 + expense == 2020) 
                     {
                         return (valueList.Value1, valueList.Value2, expense);
