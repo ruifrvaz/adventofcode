@@ -27,7 +27,9 @@ namespace AdventOfCode
             var answerDay4Part1 = Puzzle4.SolveFirstPartOfPuzzle();
             var answerDay4Part2 = Puzzle4.SolveSecondPartOfPuzzle();
 
-            Task.WaitAll(answerDay1Part1, answerDay1Part2, answerDay2Part1);
+            // Day 5
+            var answerDay5Part1 = Puzzle4.SolveFirstPartOfPuzzle();
+            var answerDay5Part2 = Puzzle4.SolveSecondPartOfPuzzle();
 
             Console.WriteLine($"The answer to Day 1 part 1 puzzle is: {answerDay1Part1.Result}.");
             Console.WriteLine($"The answer to Day 1 part 2 puzzle is: {answerDay1Part2.Result}.");
@@ -40,6 +42,9 @@ namespace AdventOfCode
             Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             Console.WriteLine($"The answer to Day 4 part 1 puzzle is: {answerDay4Part1.Result}.");
             Console.WriteLine($"The answer to Day 4 part 2 puzzle is: {answerDay4Part2.Result}.");
+            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            Console.WriteLine($"The answer to Day 5 part 1 puzzle is: {answerDay5Part1.Result}.");
+            Console.WriteLine($"The answer to Day 5 part 2 puzzle is: {answerDay5Part2.Result}.");
         }
     }
 }

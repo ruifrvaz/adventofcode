@@ -23,7 +23,7 @@ namespace AdventOfCode.Puzzles
                     if(string.IsNullOrEmpty(passportEntry))
                     {
                         var passport = CreatePassport(passportLine);
-                        if(passport.IsValid()) 
+                        if(passport.IsValidP1()) 
                         {
                             validPassports++;
                         }
@@ -54,7 +54,7 @@ namespace AdventOfCode.Puzzles
                     if(string.IsNullOrEmpty(passportEntry))
                     {
                         var passport = CreatePassport(passportLine);
-                        if(passport.IsValid()) 
+                        if(passport.IsValidP2()) 
                         {
                             validPassports++;
                         }
@@ -146,7 +146,17 @@ namespace AdventOfCode.Puzzles
         // ecl (Eye Color)
         public string ecl {get;set;}
 
-        internal bool IsValid()
+        internal bool IsValidP1()
+        {
+            return !string.IsNullOrWhiteSpace(this.ecl)
+            && !string.IsNullOrWhiteSpace(this.eyr)
+            && !string.IsNullOrWhiteSpace(this.hcl)
+            && !string.IsNullOrWhiteSpace(this.hgt)
+            && !string.IsNullOrWhiteSpace(this.iyr)
+            && !string.IsNullOrWhiteSpace(this.pid)
+            && !string.IsNullOrWhiteSpace(this.byr);
+        }
+        internal bool IsValidP2()
         {
             return !string.IsNullOrWhiteSpace(this.ecl) && eclIsValid
             && !string.IsNullOrWhiteSpace(this.eyr) && eyrIsValid
