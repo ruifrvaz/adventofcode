@@ -28,8 +28,8 @@ namespace AdventOfCode
             var answerDay4Part2 = Puzzle4.SolveSecondPartOfPuzzle();
 
             // Day 5
-            var answerDay5Part1 = Puzzle4.SolveFirstPartOfPuzzle();
-            var answerDay5Part2 = Puzzle4.SolveSecondPartOfPuzzle();
+            var answerDay5Part1 = Puzzle5.SolveFirstPartOfPuzzle();
+            var answerDay5Part2 = Puzzle5.SolveSecondPartOfPuzzle();
 
             Console.WriteLine($"The answer to Day 1 part 1 puzzle is: {answerDay1Part1.Result}.");
             Console.WriteLine($"The answer to Day 1 part 2 puzzle is: {answerDay1Part2.Result}.");

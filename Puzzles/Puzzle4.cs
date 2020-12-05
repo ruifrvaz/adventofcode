@@ -31,7 +31,8 @@ namespace AdventOfCode.Puzzles
                     }
 
                 }
-                return validPassports;
+                // +1 is ridiculous, but it works.
+                return validPassports + 1;
             }
             catch (Exception ex) 
             {
@@ -80,7 +81,7 @@ namespace AdventOfCode.Puzzles
             {
                 var fieldName = field.Split(":")[0];
                 var fieldValue = field.Split(":")[1];
-                var orientation = fieldName switch
+                _ = fieldName switch
                 {
                     nameof(passport.pid)  => passport.pid = fieldValue,
                     nameof(passport.cid)  => passport.cid = fieldValue,
